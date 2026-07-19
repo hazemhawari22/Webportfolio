@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hazem Hawari| Mathematics Portfolio</title>
+<title>Hazem Hawari | Mathematics Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -34,7 +34,6 @@
   a{color:inherit;text-decoration:none;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
 
-  /* NAV */
   nav{
     position:sticky;top:0;z-index:50;
     background:rgba(246,239,228,0.9);
@@ -47,7 +46,6 @@
   .navlinks a{opacity:0.75;transition:opacity .2s;}
   .navlinks a:hover{opacity:1;}
 
-  /* HERO */
   .hero{
     position:relative;
     min-height:88vh;
@@ -97,61 +95,250 @@
   .btn-outline{border:1px solid var(--coklat-tua);color:var(--coklat-tua);}
   .btn-outline:hover{background:var(--coklat-tua);color:var(--white);}
 
-  /* SECTION GENERIC */
   section{padding:96px 0;}
   .section-head{margin-bottom:48px;max-width:600px;}
   .section-head .eyebrow{margin-bottom:10px;}
   .section-head h2{font-size:clamp(28px,4vw,38px);}
 
-  /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;}
-  .about-grid p{color:#4a372c;margin-bottom:16px;font-size:15.5px;}
-  .facts{display:flex;flex-direction:column;gap:24px;border-left:2px solid var(--tan);padding-left:24px;}
-  .fact-label{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--coklat);margin-bottom:4px;}
-  .fact-value{font-family:'Fraunces',serif;font-size:19px;color:var(--coklat-tua);}
+  /* ABOUT - photo card layout */
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start;}
 
-  /* SKILLS */
-  .skills-band{background:var(--coklat-tua);color:var(--cream);}
-  .skills-band h2{color:var(--cream);}
-  .skills-band .eyebrow{color:var(--tan);}
-  .skills-band .eyebrow::before{background:var(--tan);}
-  .skill-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
-  .skill-list{list-style:none;}
-  .skill-list li{
-    padding:14px 0;border-bottom:1px solid rgba(246,239,228,0.15);
-    display:flex;justify-content:space-between;font-size:15px;
+  .photo-card{position:relative;}
+  .photo-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio:3/4;
+    overflow:hidden;
+    background:linear-gradient(160deg,var(--coklat) 0%, var(--coklat-tua) 100%);
   }
-  .skill-list li span.tag{color:var(--tan);font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+  .photo-frame img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(100%) contrast(1.05);
+    mix-blend-mode:luminosity;
+    opacity:0.92;
+  }
+  .photo-frame .placeholder-hint{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;color:var(--cream);
+    font-size:14px;padding:24px;opacity:0.75;
+  }
+  .name-badge{
+    position:absolute;
+    right:-18px;
+    bottom:-18px;
+    background:var(--coklat-tua);
+    color:var(--cream);
+    padding:20px 26px;
+    max-width:78%;
+    box-shadow:0 18px 34px rgba(43,27,20,0.28);
+  }
+  .name-badge .nm{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--white);}
+  .name-badge .rl{font-size:13px;color:var(--tan);margin-top:2px;}
 
-  /* PROJECTS */
+  .about-grid p{color:#4a372c;margin-bottom:16px;font-size:15.5px;}
+  .facts{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px;}
+  .fact-box{
+    flex:1 1 45%;
+    background:var(--white);
+    border:1px solid var(--garis);
+    padding:18px 20px;
+  }
+  .fact-label{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--coklat);margin-bottom:4px;}
+  .fact-value{font-family:'Fraunces',serif;font-size:18px;color:var(--coklat-tua);}
+
+  .skills-band{background:var(--white);border-top:1px solid var(--garis);border-bottom:1px solid var(--garis);}
+  .skill-block{margin-bottom:56px;}
+  .skill-block:last-child{margin-bottom:0;}
+  .skill-block-title{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces',serif;font-size:20px;font-weight:600;
+    color:var(--coklat-tua);margin-bottom:24px;
+  }
+  .skill-block-title svg{width:20px;height:20px;stroke:var(--coklat);flex-shrink:0;}
+  .skill-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .skill-card{
+    background:var(--cream);
+    border:1px solid var(--garis);
+    padding:26px 16px;
+    text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .skill-card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(43,27,20,0.08);}
+  .skill-card svg{width:26px;height:26px;stroke:var(--coklat);}
+  .skill-card span{font-size:14px;color:var(--coklat-tua);font-weight:500;}
+  .soft-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .soft-card{
+    background:var(--cream);border:1px solid var(--garis);
+    padding:18px 20px;display:flex;align-items:center;gap:14px;
+  }
+  .soft-card svg{width:20px;height:20px;stroke:var(--coklat);flex-shrink:0;}
+  .soft-card span{font-size:14.5px;color:var(--coklat-tua);font-weight:500;}
+  .course-list{list-style:none;}
+  .course-list li{
+    border-left:2px solid var(--tan);
+    padding:14px 0 14px 20px;
+    font-size:15px;color:var(--coklat-tua);
+  }
+  .course-list li b{font-weight:600;}
+  .skills-2col{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start;}
+
   .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
   .proj-card{
-    background:var(--white);border:1px solid var(--garis);padding:32px;
+    background:var(--white);border:1px solid var(--garis);overflow:hidden;
     transition:transform .25s ease, box-shadow .25s ease;
   }
   .proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(43,27,20,0.08);}
-  .proj-num{font-family:'Fraunces',serif;font-size:13px;color:var(--tan);margin-bottom:12px;letter-spacing:1px;}
-  .proj-card h3{font-size:21px;margin-bottom:10px;}
+  .proj-embed{
+    position:relative;width:100%;aspect-ratio:16/9;
+    background:var(--hitam);
+  }
+  .proj-embed iframe{width:100%;height:100%;border:0;display:block;}
+  .proj-info{padding:24px 26px;}
+  .proj-num{font-family:'Fraunces',serif;font-size:13px;color:var(--tan);margin-bottom:10px;letter-spacing:1px;}
+  .proj-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+  .proj-card h3{font-size:20px;}
+  .proj-card h3{margin-bottom:0;}
+  .proj-open{
+    width:30px;height:30px;flex-shrink:0;
+    border:1px solid var(--garis);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--coklat);transition:background .2s ease,color .2s ease;
+  }
+  .proj-open:hover{background:var(--coklat-tua);color:var(--white);border-color:var(--coklat-tua);}
+  .proj-open svg{width:14px;height:14px;}
   .proj-card p{font-size:14.5px;color:#4a372c;margin-bottom:16px;}
   .proj-link{font-size:13px;font-weight:500;color:var(--coklat);border-bottom:1px solid var(--coklat);padding-bottom:2px;}
 
-  /* CONTACT */
-  .contact-band{
-    background:var(--coklat-tua);
-    color:var(--cream);
-    text-align:center;
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative;}
+  .timeline::before{
+    content:"";position:absolute;left:50%;top:0;bottom:0;
+    width:1px;background:var(--garis);transform:translateX(-50%);
   }
-  .contact-band h2{color:var(--cream);font-size:clamp(30px,5vw,44px);margin-bottom:20px;}
-  .contact-band p{color:var(--tan);max-width:480px;margin:0 auto 36px;}
-  .contact-links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-size:14px;}
-  .contact-links a{border-bottom:1px solid rgba(246,239,228,0.4);padding-bottom:3px;}
-  .contact-links a:hover{border-color:var(--tan);color:var(--tan);}
+  .tl-row{
+    position:relative;
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:64px;margin-bottom:64px;
+  }
+  .tl-row:last-child{margin-bottom:0;}
+  .tl-dot{
+    position:absolute;left:50%;top:36px;
+    width:11px;height:11px;border-radius:50%;
+    background:var(--coklat);border:3px solid var(--cream);
+    transform:translateX(-50%);z-index:2;
+  }
+  .tl-card{
+    background:var(--white);border:1px solid var(--garis);
+    overflow:hidden;
+  }
+  .tl-row:nth-child(odd) .tl-card{grid-column:1;}
+  .tl-row:nth-child(odd) .tl-spacer{grid-column:2;}
+  .tl-row:nth-child(even) .tl-card{grid-column:2;}
+  .tl-row:nth-child(even) .tl-spacer{grid-column:1;}
+  .tl-photo{
+    position:relative;width:100%;aspect-ratio:16/9;
+    background:linear-gradient(160deg,var(--coklat) 0%, var(--coklat-tua) 100%);
+    overflow:hidden;
+  }
+  .tl-photo img{width:100%;height:100%;object-fit:cover;}
+  .tl-photo .placeholder-hint{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    text-align:center;color:var(--cream);font-size:13px;padding:20px;opacity:0.75;
+  }
+  .tl-body{padding:28px 30px;}
+  .tl-body h3{font-size:19px;margin-bottom:4px;}
+  .tl-org{font-size:13.5px;color:var(--coklat);font-weight:500;margin-bottom:14px;}
+  .tl-body ul{padding-left:18px;color:#4a372c;font-size:14.5px;}
+  .tl-body ul li{margin-bottom:8px;}
+  .tl-body ul li:last-child{margin-bottom:0;}
+
+  @media(max-width:820px){
+    .timeline::before{left:20px;}
+    .tl-row{grid-template-columns:1fr;gap:0;margin-bottom:40px;padding-left:44px;}
+    .tl-row:nth-child(odd) .tl-card,.tl-row:nth-child(even) .tl-card{grid-column:1;}
+    .tl-spacer{display:none;}
+    .tl-dot{left:20px;top:8px;}
+  }
+
+  /* CERTIFICATES */
+  .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .cert-card{
+    background:var(--white);border:1px solid var(--garis);
+    padding:28px 30px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .cert-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(43,27,20,0.08);}
+  .cert-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;}
+  .cert-logo{
+    height:34px;display:flex;align-items:center;
+    font-family:'Fraunces',serif;font-weight:700;font-size:18px;color:var(--coklat-tua);
+  }
+  .cert-year{font-size:13px;color:var(--coklat);font-weight:500;}
+  .cert-card h3{font-size:19px;margin-bottom:4px;}
+  .cert-issuer{font-size:14px;color:var(--coklat);font-weight:500;margin-bottom:14px;}
+  .cert-card p{font-size:14.5px;color:#4a372c;}
+
+  @media(max-width:820px){
+    .cert-grid{grid-template-columns:1fr;}
+  }
+
+  .contact-band{
+    background:var(--white);
+    overflow:hidden;
+  }
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 0.9fr;
+    align-items:stretch;
+  }
+  .contact-left{padding:96px 64px 96px 0;}
+  .contact-left h2{font-size:clamp(30px,4.5vw,42px);margin-bottom:16px;}
+  .contact-left > p{color:#4a372c;max-width:440px;margin-bottom:36px;font-size:15.5px;}
+  .contact-cards{display:flex;flex-direction:column;gap:16px;max-width:460px;}
+  .contact-card{
+    display:flex;align-items:center;gap:18px;
+    background:var(--cream);border:1px solid var(--garis);
+    padding:18px 22px;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .contact-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(43,27,20,0.08);}
+  .contact-icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--white);border:1px solid var(--garis);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .contact-icon svg{width:19px;height:19px;stroke:var(--coklat);}
+  .contact-label{font-size:12.5px;color:var(--coklat);margin-bottom:2px;}
+  .contact-value{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--coklat-tua);}
+
+  .contact-photo{
+    position:relative;min-height:520px;
+    background:linear-gradient(165deg,var(--coklat) 0%, var(--coklat-tua) 100%);
+  }
+  .contact-photo img{
+    width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+    filter:grayscale(100%) contrast(1.1) brightness(0.9);
+    mix-blend-mode:luminosity;opacity:0.95;
+  }
+  .contact-photo .placeholder-hint{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    text-align:center;color:var(--cream);font-size:14px;padding:32px;opacity:0.8;
+  }
+
+  @media(max-width:900px){
+    .contact-grid{grid-template-columns:1fr;}
+    .contact-left{padding:64px 32px 48px;}
+    .contact-photo{min-height:360px;order:-1;}
+  }
 
   footer{padding:28px 0;text-align:center;font-size:12.5px;color:#8a7360;}
 
   @media(max-width:820px){
     .navlinks{display:none;}
-    .about-grid,.skill-cols,.proj-grid{grid-template-columns:1fr;}
+    .about-grid,.proj-grid,.skills-2col,.soft-cards{grid-template-columns:1fr;}
+    .skill-cards{grid-template-columns:repeat(2,1fr);}
+    .about-grid{gap:64px;}
+    .name-badge{right:12px;bottom:-24px;}
     .horse-bg{width:100%;right:-10%;opacity:0.5;}
     .hero-overlay{background:linear-gradient(180deg, var(--cream) 55%, rgba(246,239,228,0.2) 100%);}
   }
@@ -165,7 +352,9 @@
     <div class="navlinks">
       <a href="#about">Tentang</a>
       <a href="#skills">Keahlian</a>
+      <a href="#experience">Pengalaman</a>
       <a href="#projects">Proyek</a>
+      <a href="#certificates">Sertifikat</a>
       <a href="#contact">Kontak</a>
     </div>
   </div>
@@ -182,10 +371,10 @@
   <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-content">
-      <div class="eyebrow">Mathematics </div>
+      <div class="eyebrow">Mathematics</div>
       <h1>Menemukan <em>pola</em>,<br>menyusun <em>keputusan</em>.</h1>
       <p class="lede">
-        Saya Hazem Hawari lulusan Matematika dari Universitas Andalas,
+        Saya Hazem Hawari, lulusan Matematika dari Universitas Andalas,
         fokus pada data dan teknologi. Setiap angka
         punya arah, tugas saya menemukannya.
       </p>
@@ -204,30 +393,57 @@
       <h2>Dari ruang kuliah ke lembar data</h2>
     </div>
     <div class="about-grid">
+
+      <div class="photo-card">
+        <div class="photo-frame">
+          <!-- GANTI src di bawah ini dengan nama file foto kamu sendiri -->
+          <img src="foto-hazem.jpg" alt="Foto Hazem Hawari" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="placeholder-hint" style="display:none;">
+            Taruh file foto kamu di folder yang sama dengan index.html,<br>lalu ganti "foto-hazem.jpg" di kode dengan nama file fotomu
+          </div>
+        </div>
+        <div class="name-badge">
+          <div class="nm">Hazem Hawari</div>
+          <div class="rl">Data Enthusiast</div>
+        </div>
+      </div>
+
       <div>
         <p>
-         Lulusan Matematika dari Universitas Andalas (GPA 3.48/4.00) dengan fokus riset pada analisis geometri diferensial dan pemodelan matematis. Selama masa studi, dipercaya sebagai Kepala Divisi Upgrading & Rekrutmen sekaligus Asisten Praktikum Laboratorium Matematika dan Sains Data, membimbing 40–60 mahasiswa per semester pada Metode Numerik, Algoritma dan Pemrograman, serta Persamaan Diferensial, sambil mengembangkan modul pembelajaran berbasis Python. Juga berperan sebagai Asisten Dosen untuk Statistika Matematika dan Pemrograman Linear. Terampil dalam MATLAB, Python, SQL, dan Power BI/Tableau untuk analisis data.
-         Pengalaman memimpin 250+ panitia pada Pekan Seni Bermatematika XXII memperkuat kapasitas kepemimpinan dan manajemen stakeholder dalam skala nasional.
+          Lulusan Matematika dari Universitas Andalas (GPA 3.48/4.00) dengan fokus riset pada
+          analisis geometri diferensial dan pemodelan matematis. Selama masa studi, dipercaya
+          sebagai Kepala Divisi Upgrading &amp; Rekrutmen sekaligus Asisten Praktikum Laboratorium
+          Matematika dan Sains Data, membimbing 40–60 mahasiswa per semester pada Metode Numerik,
+          Algoritma dan Pemrograman, serta Persamaan Diferensial, sambil mengembangkan modul
+          pembelajaran berbasis Python. Juga berperan sebagai Asisten Dosen untuk Statistika
+          Matematika dan Pemrograman Linear. Terampil dalam MATLAB, Python, SQL, dan Power BI/Tableau
+          untuk analisis data.
         </p>
+        <p>
+          Pengalaman memimpin 250+ panitia pada Pekan Seni Bermatematika XXII memperkuat kapasitas
+          kepemimpinan dan manajemen stakeholder dalam skala nasional.
+        </p>
+
+        <div class="facts">
+          <div class="fact-box">
+            <div class="fact-label">Lokasi</div>
+            <div class="fact-value">Padang, Indonesia</div>
+          </div>
+          <div class="fact-box">
+            <div class="fact-label">Pengalaman</div>
+            <div class="fact-value">Fresh Graduate</div>
+          </div>
+          <div class="fact-box">
+            <div class="fact-label">Pendidikan</div>
+            <div class="fact-value">S1 Matematika &amp; Sains Data — Unand</div>
+          </div>
+          <div class="fact-box">
+            <div class="fact-label">IPK</div>
+            <div class="fact-value">3.48 / 4.00</div>
+          </div>
+        </div>
       </div>
-      <div class="facts">
-        <div>
-          <div class="fact-label">Lokasi</div>
-          <div class="fact-value">Padang, Sumatera Barat</div>
-        </div>
-        <div>
-          <div class="fact-label">Pendidikan</div>
-          <div class="fact-value">S1 Matematika & Sains Data — Universitas Andalas</div>
-        </div>
-        <div>
-          <div class="fact-label">IPK</div>
-          <div class="fact-value">3.48 / 4.00</div>
-        </div>
-        <div>
-          <div class="fact-label">Status</div>
-          <div class="fact-value">Fresh Graduate</div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -236,21 +452,173 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Keahlian</div>
-      <h2>Alat & pendekatan yang saya pakai</h2>
+      <h2>Skill & Pelatihan</h2>
     </div>
-    <div class="skill-cols">
-      <ul class="skill-list">
-        <li>Python <span class="tag">Analisis Data</span></li>
-        <li>MATLAB <span class="tag">Simulasi Numerik</span></li>
-        <li>SQL (MySQL Workbench) <span class="tag">Query & Database</span></li>
-        <li>R <span class="tag">Statistika</span></li>
-      </ul>
-      <ul class="skill-list">
-        <li>Minitab <span class="tag">Statistical Analysis</span></li>
-        <li>Google Sheets <span class="tag">Data Wrangling</span></li>
-        <li>Microsoft Excel <span class="tag">Pivot & Reporting</span></li>
-        <li>LaTeX <span class="tag">Scientific Writing</span></li>
-      </ul>
+
+    <div class="skills-2col">
+      <div>
+
+        <div class="skill-block">
+          <div class="skill-block-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Hard Skill
+          </div>
+          <div class="skill-cards">
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+              <span>SQL</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span>Python</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M7 15l3-5 3 3 4-7"/></svg>
+              <span>MATLAB</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l3-4 3 2 5-7"/></svg>
+              <span>R</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18"/><path d="M8 4v16"/></svg>
+              <span>Google Sheets</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18"/><path d="M8 4v16"/></svg>
+              <span>Excel (Pivot, XLOOKUP)</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <span>LaTeX</span>
+            </div>
+            <div class="skill-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18"/><path d="M8 4v16"/></svg>
+              <span>Minitab</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="19" cy="9" r="2.5"/><path d="M17.5 15h1a3.5 3.5 0 0 1 3.5 3.5V21"/></svg>
+            Soft Skill
+          </div>
+          <div class="soft-cards">
+            <div class="soft-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span>Berpikir Analitis</span>
+            </div>
+            <div class="soft-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Komunikasi</span>
+            </div>
+            <div class="soft-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+              <span>Ketelitian</span>
+            </div>
+            <div class="soft-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+              <span>Manajemen Waktu</span>
+            </div>
+            <div class="soft-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="19" cy="9" r="2.5"/><path d="M17.5 15h1a3.5 3.5 0 0 1 3.5 3.5V21"/></svg>
+              <span>Kerjasama Tim</span>
+            </div>
+            <div class="soft-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
+              <span>Pemecahan Masalah</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-block-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>
+          Kursus & Pelatihan
+        </div>
+        <ul class="course-list">
+          <li><b>Google Data Analytics</b> — Coursera</li>
+          <li><b>Bootcamp Data Analyst</b> — Harisenin.com</li>
+          <li><b>Meta Data Analyst</b> — Coursera</li>
+          <li><b>Syntaxnesia Training Centre</b> — Data Analyst</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Kepemimpinan</div>
+      <h2>Pengalaman Organisasi</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-card">
+          <div class="tl-photo">
+            <!-- Ganti src dengan nama file gambarmu -->
+            <img src="pengalaman-1.jpg" alt="Kepala Divisi Upgrading & Rekrutmen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="placeholder-hint" style="display:none;">Ganti "pengalaman-1.jpg" dengan nama file gambarmu</div>
+          </div>
+          <div class="tl-body">
+            <h3>Kepala Divisi Upgrading &amp; Rekrutmen</h3>
+            <div class="tl-org">Himpunan Mahasiswa / Organisasi Kampus</div>
+            <ul>
+              <li>Merancang dan menjalankan program upgrading serta rekrutmen anggota baru organisasi.</li>
+              <li>Berperan ganda sebagai Asisten Praktikum Laboratorium Matematika dan Sains Data.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-spacer"></div>
+        <div class="tl-card">
+          <div class="tl-photo">
+            <img src="pengalaman-2.jpg" alt="Asisten Praktikum & Asisten Dosen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="placeholder-hint" style="display:none;">Ganti "pengalaman-2.jpg" dengan nama file gambarmu</div>
+          </div>
+          <div class="tl-body">
+            <h3>Asisten Praktikum &amp; Asisten Dosen</h3>
+            <div class="tl-org">Laboratorium Matematika dan Sains Data — Universitas Andalas</div>
+            <ul>
+              <li>Membimbing 40–60 mahasiswa per semester pada mata kuliah Metode Numerik, Algoritma dan Pemrograman, serta Persamaan Diferensial.</li>
+              <li>Mengembangkan modul pembelajaran berbasis Python.</li>
+              <li>Menjadi Asisten Dosen untuk Statistika Matematika dan Pemrograman Linear.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-card">
+          <div class="tl-photo">
+            <img src="pengalaman-3.jpg" alt="Pekan Seni Bermatematika XXII" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="placeholder-hint" style="display:none;">Ganti "pengalaman-3.jpg" dengan nama file gambarmu</div>
+          </div>
+          <div class="tl-body">
+            <h3>Ketua Pelaksana</h3>
+            <div class="tl-org">Pekan Seni Bermatematika XXII</div>
+            <ul>
+              <li>Memimpin lebih dari 250 panitia dalam penyelenggaraan acara tingkat nasional.</li>
+              <li>Memperkuat kapasitas kepemimpinan dan manajemen stakeholder dalam skala besar.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -263,47 +631,169 @@
     </div>
     <div class="proj-grid">
       <div class="proj-card">
-        <div class="proj-num">01</div>
-        <h3>Kinematika Sliding-Rolling — Darboux Frame</h3>
-        <p>Penelitian skripsi tentang gerak sliding-rolling antar permukaan reguler
-        menggunakan pendekatan Darboux frame dan adjoint, divalidasi dengan simulasi MATLAB.</p>
-        <a href="#" class="proj-link">Lihat detail →</a>
+        <div class="proj-embed">
+          <!-- Ganti src dengan link embed Google Slides kamu (File > Share > Publish to web > Embed),
+               tambahkan &loop=true&delayms=3000 di akhir URL biar slide otomatis berganti -->
+          <iframe src="https://docs.google.com/presentation/d/e/GANTI_DENGAN_ID_SLIDE_1/embed?start=true&loop=true&delayms=3000" allowfullscreen></iframe>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">01</div>
+          <div class="proj-title-row">
+            <h3>Kinematika Sliding-Rolling — Darboux Frame</h3>
+            <a href="#" class="proj-open" target="_blank" aria-label="Buka proyek">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <p>Penelitian skripsi tentang gerak sliding-rolling antar permukaan reguler
+          menggunakan pendekatan Darboux frame dan adjoint, divalidasi dengan simulasi MATLAB.</p>
+        </div>
       </div>
+
       <div class="proj-card">
-        <div class="proj-num">02</div>
-        <h3>Dashboard Admisi Unand 2025</h3>
-        <p>Dashboard interaktif Tableau Public dari data admisi 59 program studi:
-        proporsi peminat per fakultas dan tingkat keketatan tiap prodi.</p>
-        <a href="#" class="proj-link">Lihat detail →</a>
+        <div class="proj-embed">
+          <iframe src="https://docs.google.com/presentation/d/e/GANTI_DENGAN_ID_SLIDE_2/embed?start=true&loop=true&delayms=3000" allowfullscreen></iframe>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">02</div>
+          <div class="proj-title-row">
+            <h3>Dashboard Admisi Unand 2025</h3>
+            <a href="#" class="proj-open" target="_blank" aria-label="Buka proyek">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <p>Dashboard interaktif Tableau Public dari data admisi 59 program studi:
+          proporsi peminat per fakultas dan tingkat keketatan tiap prodi.</p>
+        </div>
       </div>
+
       <div class="proj-card">
-        <div class="proj-num">03</div>
-        <h3>Analisis Indeks Saham</h3>
-        <p>Proyek analisis data di Google Sheets untuk membangun dan mengkaji
-        pergerakan indeks pasar saham.</p>
-        <a href="#" class="proj-link">Lihat detail →</a>
+        <div class="proj-embed">
+          <iframe src="https://docs.google.com/presentation/d/e/GANTI_DENGAN_ID_SLIDE_3/embed?start=true&loop=true&delayms=3000" allowfullscreen></iframe>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">03</div>
+          <div class="proj-title-row">
+            <h3>Analisis Indeks Saham</h3>
+            <a href="#" class="proj-open" target="_blank" aria-label="Buka proyek">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <p>Proyek analisis data di Google Sheets untuk membangun dan mengkaji
+          pergerakan indeks pasar saham.</p>
+        </div>
       </div>
+
       <div class="proj-card">
-        <div class="proj-num">04</div>
-        <h3>Latihan SQL — MySQL Workbench</h3>
-        <p>Rangkaian studi kasus query dan manajemen database menggunakan
-        MySQL Workbench untuk memperkuat kemampuan data wrangling.</p>
-        <a href="#" class="proj-link">Lihat detail →</a>
+        <div class="proj-embed">
+          <iframe src="https://docs.google.com/presentation/d/e/GANTI_DENGAN_ID_SLIDE_4/embed?start=true&loop=true&delayms=3000" allowfullscreen></iframe>
+        </div>
+        <div class="proj-info">
+          <div class="proj-num">04</div>
+          <div class="proj-title-row">
+            <h3>Latihan SQL — MySQL Workbench</h3>
+            <a href="#" class="proj-open" target="_blank" aria-label="Buka proyek">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <p>Rangkaian studi kasus query dan manajemen database menggunakan
+          MySQL Workbench untuk memperkuat kemampuan data wrangling.</p>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Kredensial</div>
+      <h2>Sertifikat</h2>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-logo">RevoU</div>
+          <div class="cert-year">2026</div>
+        </div>
+        <h3>Intro to Data Analytics</h3>
+        <div class="cert-issuer">RevoU</div>
+        <p>Pelatihan dasar analisis data dengan pendekatan hands-on dan learn-by-doing, mencakup pengolahan dan interpretasi data.</p>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-top">
+          <div class="cert-logo">Coursera</div>
+          <div class="cert-year">—</div>
+        </div>
+        <h3>Data Analytics</h3>
+        <div class="cert-issuer">Coursera</div>
+        <p>Kursus daring yang membahas dasar-dasar analisis data untuk mendukung pengambilan keputusan berbasis data.</p>
+      </div>
+
+      <!-- Duplikat blok .cert-card di atas untuk menambah sertifikat lain -->
+
     </div>
   </div>
 </section>
 
 <section class="contact-band" id="contact">
   <div class="wrap">
-    <h2>Mari terhubung</h2>
-    <p>Terbuka untuk peluang di bidang data analytics, perbankan, business development,
-    finance, maupun pengajaran.</p>
-    <div class="contact-links">
-      <a href="mailto:nama@email.com">Email</a>
-      <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Hazem Hawarihawari22" target="_blank">GitHub</a>
-      <a href="https://wa.me/62xxxxxxxxxx" target="_blank">WhatsApp</a>
+    <div class="contact-grid">
+
+      <div class="contact-left">
+        <h2>Mari Terhubung</h2>
+        <p>Saya selalu terbuka untuk mendiskusikan peluang kerja, kolaborasi proyek data, atau sekadar berbincang seputar data dan matematika.</p>
+
+        <div class="contact-cards">
+          <a class="contact-card" href="mailto:nama@email.com">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">nama@email.com</div>
+            </div>
+          </a>
+
+          <a class="contact-card" href="https://linkedin.com/in/username" target="_blank">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/username</div>
+            </div>
+          </a>
+
+          <a class="contact-card" href="https://wa.me/62xxxxxxxxxx" target="_blank">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value">0xxx-xxxx-xxxx</div>
+            </div>
+          </a>
+
+          <a class="contact-card" href="https://instagram.com/username" target="_blank">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Instagram</div>
+              <div class="contact-value">@username</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-photo">
+        <!-- Ganti src dengan nama file fotomu -->
+        <img src="foto-kontak.jpg" alt="Foto Hazem Hawari" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-hint" style="display:none;">Ganti "foto-kontak.jpg" dengan nama file fotomu</div>
+      </div>
+
     </div>
   </div>
 </section>
